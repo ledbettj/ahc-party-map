@@ -70,8 +70,8 @@
 
   var svg = d3.select("#map");
   var box = svg.append("g");
-  var width = svg.node().offsetWidth;
-  var height = svg.node().offsetHeight;
+  var width = svg.node().offsetWidth || parseInt(svg.style('width'), 10);
+  var height = svg.node().offsetHeight || parseInt(svg.style('height'), 10);
   var colors = d3.scale.category20();
 
   svg.attr('width', width).attr('height', height);
