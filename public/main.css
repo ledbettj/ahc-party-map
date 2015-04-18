@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #231F20;
+  margin: 0px;
+  padding: 0px;
+  font-family:  Arial, 'DejaVu Sans', sans-serif;
+  padding: 0px;
+}
+#wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+#map {
+  width: 950px;
+  height: 950px;
+  float: left;
+  display: block;
+  background: #231F20;
+  border-right: 1px solid #f3f3f3;
+}
+
+#sidebar {
+  float: left;
+  padding: 24px;
+  color: #f3f3f3;
+}
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#sidebar li {
+  line-height: 24px;
+  display: block;
+  height: 24px;
+  margin-bottom: 8px;
+  transition: color 0.25s ease-out;
+}
+
+#sidebar li.active {
+  color: #ffff77;
+}
+
+.counter {
+  color: #231F20;
+  position: relative;
+  top: 3px;
+  margin-right: 16px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 18px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+path { fill: none; stroke: none; }
+.highway { stroke: #f3f3f3; stroke-width: 1; }
+.highway.motorway  { stroke-width: 3;}
+.highway.motorway_link  { stroke-width: 3; opacity: 0;}
+.highway.primary, .highway.primary_link   { stroke-width: 2; opacity: 0.15; }
+.highway.secondary, .highway.secondary_link { opacity: 0.05; }
+.highway.tertiary, .highway.tertiary_link  { opacity: 0.05; }
+
+.marker {
+  opacity: 0.8;
+  stroke-width: 0.5;
+  stroke: #fff;
+  cursor: pointer;
+}
