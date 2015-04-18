@@ -1,32 +1,45 @@
-#wrapper, #map, #sidebar {
+#wrapper, #sidebar, #map-container {
   box-sizing: border-box;
 }
+
+html { height: 100%; }
+
 body {
+  height: 100%;
   background: #231F20;
   margin: 0px;
   padding: 0px;
   font-family:  Arial, 'DejaVu Sans', sans-serif;
   padding: 0px;
 }
-#wrapper {
-  width: 100%;
+
+#map-container {
+  display: block;
+  height: 100%;
+  margin-right: 698px;
+  background: #231F20;
   overflow: hidden;
-  border-radius: 4px;
 }
 
 #map {
-  width: 950px;
-  height: 950px;
-  float: left;
   display: block;
-  background: #231F20;
-  border-right: 1px solid #f3f3f3;
+  width: 100%;
+  height: 100%;
+}
+
+#wrapper {
+  height: 100%;
+  overflow: hidden;
 }
 
 #sidebar {
-  float: left;
+  width: 698px;
+  float: right;
+  height: 100%;
   padding: 24px;
   color: #f3f3f3;
+  border-left: 1px solid #fff;
+  overflow-y: scroll;
 }
 
 #sidebar img {
