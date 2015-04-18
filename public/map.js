@@ -1,4 +1,15 @@
 (function() {
+  var UI = {
+    marker: {
+      radius: 6,
+      radiusExpanded: 18,
+      textSize: '10px',
+      textSizeExpanded: '20px',
+      opacity: 0.80,
+      opacityExpanded: 1.0
+    }
+  }
+
   var markers = [
     { name: 'Margaret Mitchell House',
       coordinates: [-84.3845, 33.7810], },
@@ -54,28 +65,28 @@
     e.select("circle")
       .transition()
       .duration(250)
-      .attr('r', 15)
-      .style('opacity', 1.0);
+      .attr('r', UI.marker.radiusExpanded)
+      .style('opacity', UI.marker.opacityExpanded);
 
     e.select("text")
       .transition()
       .duration(250)
-      .attr('dy', 7)
-      .style('font-size', 20);
+      .attr('dy', UI.marker.radiusExpanded / 2)
+      .style('font-size', UI.marker.textSizeExpanded);
   }
 
   function collapseMarker(e) {
     e.select("circle")
       .transition()
       .duration(250)
-      .attr('r', 6)
-      .style('opacity', 0.8);
+      .attr('r', UI.marker.radius)
+      .style('opacity', UI.marker.opacity);
 
     e.select("text")
       .transition()
       .duration(250)
-      .attr('dy', 3)
-      .style('font-size', 10);
+      .attr('dy', UI.marker.radius / 2)
+      .style('font-size', UI.marker.textSize);
   }
 
   d3.json("atlanta.geojson", function(json) {
@@ -127,7 +138,7 @@
       .attr('class', 'marker')
       .attr('id', function(d) { return 'map-marker-' + d.id; })
       .style('fill', function(d, i) { return colors(i); })
-      .attr('r', 6)
+      .attr('r', UI.marker.radius)
 
     groups.append('text')
       .attr('dy', 3)
