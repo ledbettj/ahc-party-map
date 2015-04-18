@@ -76,6 +76,11 @@
 
   svg.attr('width', width).attr('height', height);
 
+  function triggerMarker(d) {
+    /* TODO: select venue */
+    console.log(d);
+  }
+
   function expandMarker(d, e) {
     /* resort markers so the currently hovered one is on top */
     box.selectAll('.marker-wrapper').sort(function(a, b) {
@@ -152,7 +157,8 @@
         .on('mouseout', function(d) {
           collapseMarker(d3.select(this));
           d3.select("#marker-" + d.id).attr('class','');
-      });
+        })
+        .on('click', triggerMarker);
 
     groups.append('circle')
       .attr('class', 'marker')
@@ -187,6 +193,7 @@
     .attr('href', '')
     .text(function(d) { return d.name; })
     .on('click', function(d) {
+      triggerMarker(d);
       d3.event.preventDefault();
     });
 
