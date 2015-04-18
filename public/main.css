@@ -1,4 +1,4 @@
-* {
+#wrapper, #map, #sidebar {
   box-sizing: border-box;
 }
 body {
@@ -40,7 +40,7 @@ body {
   line-height: 24px;
   display: block;
   height: 24px;
-  margin-bottom: 8px;
+  padding: 4px;
   transition: color 0.25s ease-out;
 }
 
