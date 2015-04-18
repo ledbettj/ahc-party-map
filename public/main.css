@@ -88,3 +88,9 @@ path { fill: none; stroke: none; }
   stroke: #fff;
   cursor: pointer;
 }
+
+.marker-wrapper text {
+  font-size: 8px;
+  fill: #231F20;
+  cursor: pointer;
+}
