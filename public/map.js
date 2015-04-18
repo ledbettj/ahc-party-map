@@ -158,7 +158,7 @@
       .attr('class', 'marker')
       .attr('id', function(d) { return 'map-marker-' + d.id; })
       .style('fill', function(d, i) { return colors(i); })
-      .attr('r', UI.marker.radius)
+      .attr('r', UI.marker.radius);
 
     groups.append('text')
       .attr('dy', 3)
@@ -192,6 +192,6 @@
 
   li.append('div')
     .attr('class', 'info')
-    .text(function(d) { return d.date; })
+    .text(function(d) { return d.date; });
 
 })();
