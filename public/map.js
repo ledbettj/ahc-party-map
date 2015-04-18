@@ -112,6 +112,7 @@
 
     box.selectAll('circle').data(markers).enter().append('circle')
       .attr('class', 'marker')
+      .attr('id', function(d) { return 'map-marker-' + d.id; })
       .attr('cx', function(d) {
         return projection(d.coordinates)[0];
       })
@@ -154,13 +155,39 @@
   var li = list.selectAll("li").data(markers).enter().append("li")
       .attr('id', function(d) { return 'marker-' + d.id; });
 
+  li.on('mouseover', function(d) {
+        box.selectAll('circle').sort(function(a, b) {
+          if (a.id !== d.id)
+            return d3.ascending(a.id, b.id);
+
+          return 1000;
+        });
+
+    d3.select('#map-marker-' + d.id)
+      .transition()
+      .duration(250)
+      .attr('r', 15)
+      .style('opacity', 1.0);
+
+  }).on('mouseout', function(d) {
+    d3.select('#map-marker-' + d.id)
+      .transition()
+      .duration(250)
+      .attr('r', 6)
+      .style('opacity', 0.8);
+  });
+
   li.append('span')
     .attr('class', 'counter')
     .text(function(d,i) { return d.id; })
     .style('background', function(d, i) { return colors(i); });
 
-  li.append('span')
+  li.append('a')
     .attr('class', 'title')
-    .text(function(d) { return d.name; });
+    .attr('href', '')
+    .text(function(d) { return d.name; })
+    .on('click', function(d) {
+      d3.event.preventDefault();
+    });
 
 })();
