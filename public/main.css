@@ -48,7 +48,6 @@ body {
   cursor :pointer;
   line-height: 24px;
   display: block;
-  height: 24px;
   padding: 4px;
   transition: color 0.25s ease-out;
 }
@@ -59,9 +58,14 @@ body {
   color: inherit;
 }
 
-#sidebar li.active,
-#sidebar li:hover {
+#sidebar li.active a,
+#sidebar li:hover a {
   color: #ffff77;
+}
+
+#sidebar li .info {
+  margin-left: 34px;
+  font-size: 80%;
 }
 
 .counter {

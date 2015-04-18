@@ -8,43 +8,63 @@
       opacity: 0.80,
       opacityExpanded: 1.0
     }
-  }
+  };
 
   var markers = [
     { name: 'Margaret Mitchell House',
-      coordinates: [-84.3845, 33.7810], },
+      coordinates: [-84.3845, 33.7810],
+      date: 'September 2012 and March 2014'},
     { name: 'Oakland Cemetery',
-      coordinates: [-84.3713, 33.7487], },
+      coordinates: [-84.3713, 33.7487],
+      date: 'October 2012' },
     { name: 'Smith Family Farm',
-      coordinates: [-84.3856, 33.8406] },
+      coordinates: [-84.3856, 33.8406],
+      date: 'November 2012 and April 2014'},
     { name: 'Fox Theatre',
-      coordinates: [-84.3856, 33.7725] },
+      coordinates: [-84.3856, 33.7725],
+      date: 'January 2012' },
     { name: 'Odd Fellows Building',
-      coordinates: [-84.3794, 33.7556] },
+      coordinates: [-84.3794, 33.7556],
+      date: 'February 2012' },
     { name: 'Variety Playhouse',
-      coordinates: [-84.3511, 33.7638] },
+      coordinates: [-84.3511, 33.7638],
+      date: 'March 2013' },
     { name: 'Swan House',
-      coordinates: [-84.3881, 33.8403] },
+      coordinates: [-84.3881, 33.8403],
+      date: 'May 2013' },
     { name: 'Zoo Atlanta',
-      coordinates: [-84.3697, 33.7325] },
+      coordinates: [-84.3697, 33.7325],
+      date: 'July 2013' },
     { name: 'Turner Field',
-      coordinates: [-84.3894, 33.7353] },
+      coordinates: [-84.3894, 33.7353],
+      date: 'September 2013' },
     { name: 'Piedmont Park',
-      coordinates: [-84.3733, 33.7861], },
+      coordinates: [-84.3733, 33.7861],
+      date: 'October 2013' },
     { name: 'Atlanta Contemporary Art Center',
-      coordinates: [-84.3915, 33.7621] },
+      coordinates: [-84.3915, 33.7621],
+      date: 'November 2013' },
     { name: 'High Museum of Art',
-      coordinates: [-84.3852, 33.7905] },
+      coordinates: [-84.3852, 33.7905],
+      date: 'June 2014' },
     { name: 'Rhodes Hall',
-      coordinates: [-84.3883, 33.7960] },
+      coordinates: [-84.3883, 33.7960],
+      date: 'August 2014' },
     { name: 'Westview Cemetery',
-      coordinates: [-84.4431, 33.7462] },
+      coordinates: [-84.4431, 33.7462],
+      date: 'October 2014' },
     { name: 'Atlanta History Center',
-      coordinates: [-84.3857, 33.8428] },
+      coordinates: [-84.3857, 33.8428],
+      date: 'December 2014' },
     { name: 'The Tabernacle',
-      coordinates: [-84.3914, 33.7587] },
+      coordinates: [-84.3914, 33.7587],
+      date: 'February 2015' },
     { name: 'Dekalb History Center',
-      coordinates: [-84.29631, 33.77483] }];
+      coordinates: [-84.29631, 33.77483],
+      date: 'April 2015' },
+    { name: "The Wren's Nest",
+      coordinates: [-84.4225, 33.7372],
+      date: 'June 2015'}];
 
   for(var i = 0; i < markers.length; markers[i].id = (i + 1), ++i);
 
@@ -169,5 +189,9 @@
     .on('click', function(d) {
       d3.event.preventDefault();
     });
+
+  li.append('div')
+    .attr('class', 'info')
+    .text(function(d) { return d.date; })
 
 })();
