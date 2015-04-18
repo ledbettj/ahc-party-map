@@ -29,10 +29,19 @@ body {
   color: #f3f3f3;
 }
 
+#sidebar img {
+  display: block;
+  margin: 0px auto 24px auto;
+}
+
 #sidebar ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  
 }
 
 #sidebar li {
