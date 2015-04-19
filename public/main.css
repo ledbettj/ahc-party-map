@@ -1,4 +1,4 @@
-#wrapper, #sidebar, #map-container {
+#wrapper, #sidebar, #map-container, #overlay {
   box-sizing: border-box;
 }
 
@@ -12,6 +12,56 @@ body {
   font-family:  Arial, 'DejaVu Sans', sans-serif;
   padding: 0px;
 }
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 24px;
+  z-index: 100;
+  background: rgba(25, 21, 22, 0.95);
+  overflow: hidden;
+  color: #f3f3f3;
+}
+
+#overlay.hidden {
+  display: none;
+}
+#overlay-content {
+  border: 1px solid #f3f3f3;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.90);
+  background: #231f20;
+  height: 100%;
+  width: 80%;
+  margin: 0px auto;
+}
+
+#overlay-content .title {
+  padding: 24px;
+  margin: 0;
+  display: block;
+  position: relative;
+}
+
+#overlay-content .close-button {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  color: #424242;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: block;
+  text-align: center;
+}
+
+#overlay-content .close-button:hover {
+  color: #626262;
+}
+
 
 #map-container {
   display: block;
@@ -39,7 +89,7 @@ body {
   padding: 24px;
   color: #f3f3f3;
   border-left: 1px solid #fff;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #sidebar img {

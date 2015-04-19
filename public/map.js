@@ -68,6 +68,9 @@
 
   for(var i = 0; i < markers.length; markers[i].id = (i + 1), ++i);
 
+  var overlay = d3.select("#overlay");
+  var overlayContent = d3.select("#overlay-content");
+
   var svg = d3.select("#map");
   var box = svg.append("g");
   var width = svg.node().offsetWidth || parseInt(svg.style('width'), 10);
@@ -76,9 +79,28 @@
 
   svg.attr('width', width).attr('height', height);
 
+  function closeOverlay() { overlay.attr('class', 'hidden'); }
+
+  overlay.on('click', closeOverlay);
+
+  overlayContent.on('click', function() {
+    d3.event.stopPropagation();
+  });
+
+  overlayContent.select('.close-button').on('click', closeOverlay);
+
+  d3.select('body').on('keydown', function() {
+    if (d3.event.keyCode === 27)
+      closeOverlay();
+  });
+
   function triggerMarker(d) {
-    /* TODO: select venue */
-    console.log(d);
+    var e = overlayContent.datum(d);
+    e.select(".title span")
+      .text(d.name);
+
+    overlay
+      .attr("class", "");
   }
 
   function expandMarker(d, e) {
@@ -181,7 +203,11 @@
     expandMarker(d, d3.select("#marker-wrapper-" + d.id));
   }).on('mouseout', function(d) {
     collapseMarker(d3.select("#marker-wrapper-" + d.id));
+  }).on('click', function(d) {
+    triggerMarker(d);
+    d3.event.preventDefault();
   });
+
 
   li.append('span')
     .attr('class', 'counter')
@@ -191,11 +217,7 @@
   li.append('a')
     .attr('class', 'title')
     .attr('href', '')
-    .text(function(d) { return d.name; })
-    .on('click', function(d) {
-      triggerMarker(d);
-      d3.event.preventDefault();
-    });
+    .text(function(d) { return d.name; });
 
   li.append('div')
     .attr('class', 'info')
