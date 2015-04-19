@@ -54,7 +54,6 @@ body {
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-  
 }
 
 #sidebar li {
@@ -120,4 +119,44 @@ path { fill: none; stroke: none; }
   font-size: 8px;
   fill: #231F20;
   cursor: pointer;
+}
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  #sidebar {
+    width: 349px;
+  }
+
+  #sidebar img {
+    width: 285px;
+  }
+
+  #sidebar ul {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+  }
+
+  #map-container {
+    margin-right: 349px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
 }
