@@ -200,6 +200,37 @@ path { fill: none; stroke: none; }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+  #map-container {
+    margin-right: 0;
+  }
+
+  #sidebar {
+    float: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    background: #231F20;
+    border-bottom: 1px solid #fff;
+  }
+
+  #sidebar li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  #sidebar li .info {
+    display: none;
+  }
+
+  #sidebar li:last-child {
+    border-bottom: none;
+  }
+
+  #sidebar img {
+    display: none;
+  }
 }
 
 /* Extra Small Devices, Phones */
